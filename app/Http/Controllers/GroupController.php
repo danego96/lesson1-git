@@ -4,24 +4,35 @@ namespace App\Http\Controllers;
 use App\Http\Requests\GroupRequest;
 use App\Models\Group;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\Paginator;
 
-Paginator::useBootstrap();
 
 class GroupController extends Controller
 {
     public function list(){
         $group = new Group;
-        return view('groups/list',['data' => $group -> paginate(3)]);
+        return view('groups/list',['data' => $group -> paginate(10)]);
     }
 
     public function create(){
         return view('groups/create');
     }
     
-    public function edit(){
-        return view('groups/form');
+    public function edit($id){
+        $group = new Group;
+        return view('groups/group-edit',['data' => $group -> find($id)]);
     }
+
+
+    public function updateGroupSubmit($id, GroupRequest $req){
+
+        $group = Group::find($id);
+  
+        $group->name = $req->input('name');
+
+        $group -> save();
+        
+        return redirect() ->route('list')->with ('status', "Группа обновлена");
+      }
 
     public function delete(){
         return view('groups/show');

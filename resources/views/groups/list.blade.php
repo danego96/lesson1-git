@@ -15,6 +15,8 @@
   <tr>
       <th scope="col">Код группы</th>
       <th scope="col">Наименование</th>
+      <th scope="col">Редактировать</th>
+      <th scope="col">Детальнее</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +24,8 @@
   <tr>
     <td>{{ $el->id }}</td>
     <td>{{ $el->name }}</td>
+    <td><a href="{{ route('group-edit', $el -> id) }}">Редактировать</a></td>
+    <td><a href="#">Детали</a></td>
 </tr>
 @endforeach
   </tbody>

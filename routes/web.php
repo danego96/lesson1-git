@@ -21,8 +21,10 @@ Route::get('/groups', [App\Http\Controllers\GroupController::class, 'list'])->na
 
 Route::get('/groups/create', [App\Http\Controllers\GroupController::class, 'create'])->name('create-group');
 
-Route::get('/groups/edit', [App\Http\Controllers\GroupController::class, 'edit'])->name('edit-group');
+Route::get('/groups/edit/{id}', [App\Http\Controllers\GroupController::class, 'edit'])->name('group-edit');
 
 Route::post('/groups/delete', [App\Http\Controllers\GroupController::class, 'delete'])->name('delete-group');
 
 Route::post('/group-create/submit', [App\Http\Controllers\GroupController::class, 'submit'])->name('group-form');
+
+Route::post('/group/update/{id}', [App\Http\Controllers\GroupController::class, 'updateGroupSubmit'])->name('group-edit-submit');
