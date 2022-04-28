@@ -7,8 +7,6 @@
 
 <h1>Обновление записи</h1>
 
-
-
 <form action="{{ route('group-edit-submit', $data -> id) }}" method="post">
     @csrf
     <div class="mb-3">
@@ -17,6 +15,8 @@
     </div>
     <button type="submit" class="btn btn-success">Обновить</button>
 </form>
+<br>
+<a href="{{ route('group-delete', $data -> id) }}"><button class="btn btn-danger">Удалить</button></a>
 
 
 @endsection

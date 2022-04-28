@@ -28,3 +28,5 @@ Route::post('/groups/delete', [App\Http\Controllers\GroupController::class, 'del
 Route::post('/group-create/submit', [App\Http\Controllers\GroupController::class, 'submit'])->name('group-form');
 
 Route::post('/group/update/{id}', [App\Http\Controllers\GroupController::class, 'updateGroupSubmit'])->name('group-edit-submit');
+
+Route::get('/groups/edit/{id}/delete', [App\Http\Controllers\GroupController::class, 'deleteGroup'])->name('group-delete');
