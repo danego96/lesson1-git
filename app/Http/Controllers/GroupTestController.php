@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\GroupRequest;
-use App\Models\Group;
 use Illuminate\Http\Request;
 
-
-class GroupController extends Controller
+class GroupTestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $group = new Group;
-        return view('groups/list', ['data' => $group->paginate(10)]);
+        //
     }
 
     /**
@@ -27,7 +23,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view('groups/create');
+        //
     }
 
     /**
@@ -36,13 +32,9 @@ class GroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GroupRequest $request)
+    public function store(Request $request)
     {
-        $group = new Group();
-        $group->name = $request->input('name');
-        $group->save();
-
-        return redirect()->route('list')->with('status', 'Новая группа добавлена');
+        //
     }
 
     /**
@@ -64,8 +56,7 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        $group = new Group;
-        return view('groups/group-edit', ['data' => $group->find($id)]);
+        //
     }
 
     /**
@@ -75,13 +66,9 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(GroupRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $group = Group::find($id);
-        $group->name = $request->input('name');
-        $group->save();
-
-        return redirect()->route('list')->with('status', "Группа обновлена");
+        //
     }
 
     /**
@@ -92,8 +79,6 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        Group::find($id)->delete();
-
-        return redirect()->route('list')->with('status', "Группа удалена");
+        //
     }
 }
