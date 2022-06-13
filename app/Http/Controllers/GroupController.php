@@ -17,7 +17,7 @@ class GroupController extends Controller
     public function index()
     {
         $group = new Group;
-        return view('groups/list', ['data' => $group->paginate(10)]);
+        return view('groups.index', ['data' => $group->paginate(10)]);
     }
 
     /**
@@ -27,7 +27,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view('groups/create');
+        return view('groups.create');
     }
 
     /**
@@ -42,7 +42,7 @@ class GroupController extends Controller
         $group->name = $request->input('name');
         $group->save();
 
-        return redirect()->route('list')->with('status', 'Новая группа добавлена');
+        return redirect()->route('groups.index')->with('status', 'Новая группа добавлена');
     }
 
     /**
@@ -65,7 +65,7 @@ class GroupController extends Controller
     public function edit($id)
     {
         $group = new Group;
-        return view('groups/group-edit', ['data' => $group->find($id)]);
+        return view('groups.edit', ['data' => $group->find($id)]);
     }
 
     /**
@@ -81,7 +81,7 @@ class GroupController extends Controller
         $group->name = $request->input('name');
         $group->save();
 
-        return redirect()->route('list')->with('status', "Группа обновлена");
+               return redirect()->route('groups.index')->with('status', 'Группа обновлена');
     }
 
     /**
@@ -94,6 +94,6 @@ class GroupController extends Controller
     {
         Group::find($id)->delete();
 
-        return redirect()->route('list')->with('status', "Группа удалена");
+        return redirect()->route('groups.index')->with('status', "Группа удалена");
     }
 }

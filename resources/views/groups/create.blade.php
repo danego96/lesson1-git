@@ -7,7 +7,7 @@
 
 
 
-<form action="{{ route('group-form') }}" method="post">
+<form action="{{ route('groups.store') }}" method="post">
     @csrf
     <div class="mb-3">
         <label for="name" class="form-label">Введите название группы</label>
