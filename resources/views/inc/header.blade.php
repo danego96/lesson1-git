@@ -5,8 +5,8 @@
       </a>
 
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="{{ route('home') }}" class="nav-link active" aria-current="page">Главная</a></li>
-        <li class="nav-item"><a href="{{ route('list') }}" class="nav-link">Группы</a></li>
+      <li class="nav-item"><a href="{{ route('home') }}" class="nav-link active" aria-current="page">Главная</a></li>
+        <li class="nav-item"><a href="{{ route('groups.index') }}" class="nav-link">Группы</a></li>
       </ul>
     </header>
 
