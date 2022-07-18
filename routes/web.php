@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\StudentController;
 
 Route::resource('groups', GroupController::class);
-
+Route::resource('students', StudentController::class);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
