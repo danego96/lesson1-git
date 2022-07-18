@@ -25,7 +25,7 @@
     <td>{{ $el->id }}</td>
     <td>{{ $el->name }}</td>
     <td><a href="{{ route('groups.edit', $el -> id) }}">Редактировать</a></td>
-    <td><a href="{{ route('students.index')}}">Детали</a></td>
+    <td><a href="#">Детали</a></td>
 </tr>
 @endforeach
   </tbody>
