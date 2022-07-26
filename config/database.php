@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\TrustProxies;
 use Illuminate\Support\Str;
 
 return [

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Http\Requests\StudentRequest;
 
 class StudentController extends Controller
 {
@@ -25,7 +26,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -34,9 +35,16 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentRequest $request)
     {
-        //
+        $student = new Student();
+        $student->first_name = $request->input('first_name');
+        $student->middle_name = $request->input('middle_name');
+        $student->last_name = $request->input('last_name');
+        $student->birth_date = $request->input('birth_date');
+        $student->save();
+
+        return redirect()->route('students.index')->with('status', 'Студент добавлен');
     }
 
     /**
