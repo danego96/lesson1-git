@@ -28,6 +28,7 @@ class StudentRequest extends FormRequest
             'middle_name' => 'required',
             'last_name' => 'required',
             'birth_date' => 'required',
+            'group_id',
         ];
     }
 }

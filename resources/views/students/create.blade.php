@@ -25,7 +25,15 @@
         <label for="birth_date" class="form-label">Дата рождения</label>
         <input type="date" name="birth_date" placeholder="Введите название группы" id="имя" class="form-control">
     </div>
-
+    <div class="mb-3">
+        <label for="group_id" class="form-label">Группа студента</label>
+    <select class="form-select" aria-label="Default select example">
+        <option selected>Группа студента</option>
+        @foreach($data as $el)
+          <option name="group_id">{{ $el->name }}</option>
+      @endforeach
+      </select>
+    </div>
     <button type="submit" class="btn btn-success">Отправить</button>
 </form>
 

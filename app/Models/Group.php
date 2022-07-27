@@ -10,8 +10,8 @@ class Group extends Model
     use HasFactory;
     
 
-   /* public function students()
-  /  {
+    public function students()
+    {
         return $this->hasMany(Student::class);
-    }*/
+    }
 }

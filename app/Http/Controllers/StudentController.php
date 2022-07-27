@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Group;
 use Illuminate\Http\Request;
 use App\Http\Requests\StudentRequest;
 
@@ -26,7 +27,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+        $group = new Group;
+        return view('students.create', ['data' => $group->paginate(10)]);
     }
 
     /**
@@ -42,6 +44,7 @@ class StudentController extends Controller
         $student->middle_name = $request->input('middle_name');
         $student->last_name = $request->input('last_name');
         $student->birth_date = $request->input('birth_date');
+        $student->group_id = $request->input('group_id');
         $student->save();
 
         return redirect()->route('students.index')->with('status', 'Студент добавлен');
