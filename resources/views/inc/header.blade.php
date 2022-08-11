@@ -7,6 +7,7 @@
       <ul class="nav nav-pills">
       <li class="nav-item"><a href="{{ route('home') }}" class="nav-link active" aria-current="page">Главная</a></li>
         <li class="nav-item"><a href="{{ route('groups.index') }}" class="nav-link">Группы</a></li>
+        <li class="nav-item"><a href="{{ route('students.index') }}" class="nav-link">Список студентов</a></li>
       </ul>
     </header>
 

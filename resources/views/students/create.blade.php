@@ -27,10 +27,10 @@
     </div>
     <div class="mb-3">
         <label for="group_id" class="form-label">Группа студента</label>
-    <select class="form-select" aria-label="Default select example">
+    <select class="form-select" aria-label="Default select example" name="group_id">
         <option selected>Группа студента</option>
         @foreach($data as $el)
-          <option name="group_id">{{ $el->name }}</option>
+          <option name="group_id">{{ $el->id }}</option>
       @endforeach
       </select>
     </div>

@@ -17,7 +17,7 @@ class StudentController extends Controller
     public function index()
     {
         $student = new Student;
-        return view('students.index', ['data' => $student->paginate(1)]);
+        return view('students.index', ['data' => $student->paginate(10)]);
     }
 
     /**
@@ -69,7 +69,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = new Student;
+        return view('students.edit', ['data' => $student->find($id)]);
     }
 
     /**
@@ -79,9 +80,17 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StudentRequest $request, $id)
     {
-        //
+        $student = Student::find($id);
+        $student->first_name = $request->input('first_name');
+        $student->middle_name = $request->input('middle_name');
+        $student->last_name = $request->input('last_name');
+        $student->birth_date = $request->input('birth_date');
+
+        $student->save();
+
+               return redirect()->route('groups.index')->with('status', 'Группа обновлена');
     }
 
     /**
@@ -92,6 +101,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Student::find($id)->delete();
+
+        return redirect()->route('students.index')->with('status', "Студент удален");
     }
 }
